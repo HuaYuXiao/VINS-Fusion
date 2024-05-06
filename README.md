@@ -42,7 +42,7 @@ Follow [Ceres Installation](http://ceres-solver.org/installation.html).
 Clone the repository and catkin_make:
 
 ```bash
-catkin_make install --source src/VINS-Fusion --build build/vins_fusion
+catkin_make install --source src/VINS-Fusion/vins_estimator --build build/vins_fusion
 ```
 
 (if you fail in this step, try to find another computer with clean system or reinstall Ubuntu and ROS)
