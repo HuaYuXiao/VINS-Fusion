@@ -3,15 +3,14 @@
 
 #include <boost/shared_ptr.hpp>
 #include <opencv2/core/core.hpp>
+#include <opencv2/imgproc/types_c.h>
+#include <opencv2/calib3d/calib3d_c.h>
 
-namespace camodocal
-{
-
+namespace camodocal{
 class ChessboardCorner;
 typedef boost::shared_ptr<ChessboardCorner> ChessboardCornerPtr;
 
-class ChessboardCorner
-{
+class ChessboardCorner{
 public:
     ChessboardCorner() : row(0), column(0), needsNeighbor(true), count(0) {}
 

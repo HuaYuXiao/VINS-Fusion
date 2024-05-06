@@ -3,14 +3,12 @@
 
 #include <boost/shared_ptr.hpp>
 #include <opencv2/core/core.hpp>
-
+#include <opencv2/imgproc/types_c.h>
+#include <opencv2/imgproc/imgproc_c.h>
 #include "camodocal/camera_models/Camera.h"
 
-namespace camodocal
-{
-
-class CameraFactory
-{
+namespace camodocal{
+class CameraFactory{
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
     CameraFactory();
@@ -26,7 +24,6 @@ public:
 private:
     static boost::shared_ptr<CameraFactory> m_instance;
 };
-
 }
 
 #endif

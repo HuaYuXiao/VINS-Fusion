@@ -2,17 +2,15 @@
 #define CHESSBOARDQUAD_H
 
 #include <boost/shared_ptr.hpp>
-
+#include <opencv2/imgproc/types_c.h>
+#include <opencv2/calib3d/calib3d_c.h>
 #include "camodocal/chessboard/ChessboardCorner.h"
 
-namespace camodocal
-{
-
+namespace camodocal{
 class ChessboardQuad;
 typedef boost::shared_ptr<ChessboardQuad> ChessboardQuadPtr;
 
-class ChessboardQuad
-{
+class ChessboardQuad{
 public:
     ChessboardQuad() : count(0), group_idx(-1), edge_len(FLT_MAX), labeled(false) {}
 
@@ -23,7 +21,6 @@ public:
     ChessboardQuadPtr neighbors[4];    // Pointers of quad neighbors
     bool labeled;                      // Has this corner been labeled?
 };
-
 }
 
 #endif

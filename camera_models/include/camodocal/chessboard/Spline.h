@@ -23,11 +23,12 @@
 #include <boost/numeric/ublas/triangular.hpp>
 #include <boost/numeric/ublas/lu.hpp>
 #include <exception>
+#include <opencv2/imgproc/types_c.h>
+#include <opencv2/calib3d/calib3d_c.h>
 
 namespace ublas = boost::numeric::ublas;
 
-class Spline : private std::vector<std::pair<double, double> >
-{
+class Spline : private std::vector<std::pair<double, double> >{
 public:
   //The boundary conditions available
   enum BC_type {

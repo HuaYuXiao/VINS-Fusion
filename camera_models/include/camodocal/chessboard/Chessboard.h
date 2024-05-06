@@ -2,19 +2,18 @@
 #define CHESSBOARD_H
 
 #include <boost/shared_ptr.hpp>
-#include <opencv2/core/core.hpp>
+#include <opencv2/imgproc/types_c.h>
+#include <opencv2/calib3d/calib3d_c.h>
+#include <opencv2/imgproc/types_c.h>
 
-namespace camodocal
-{
-
+namespace camodocal{
 // forward declarations
 class ChessboardCorner;
 typedef boost::shared_ptr<ChessboardCorner> ChessboardCornerPtr;
 class ChessboardQuad;
 typedef boost::shared_ptr<ChessboardQuad> ChessboardQuadPtr;
 
-class Chessboard
-{
+class Chessboard{
 public:
     Chessboard(cv::Size boardSize, cv::Mat& image);
 
