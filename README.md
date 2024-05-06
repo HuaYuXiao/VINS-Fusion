@@ -1,5 +1,12 @@
 # VINS-Fusion
-## An optimization-based multi-sensor state estimator
+
+An optimization-based multi-sensor state estimator
+
+![HitCount](https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FHuaYuXiao%2FVINS-Fusion.json%3Fcolor%3Dpink)
+![Static Badge](https://img.shields.io/badge/ROS-noetic-22314E?logo=ros)
+![Static Badge](https://img.shields.io/badge/C%2B%2B-14-00599C?logo=cplusplus)
+![Static Badge](https://img.shields.io/badge/Python-3.8.10-3776AB?logo=python)
+![Static Badge](https://img.shields.io/badge/Ubuntu-20.04.6-E95420?logo=ubuntu)
 
 <img src="support_files/image/vins_logo.png" width = 55% height = 55% div align=left />
 <img src="support_files/image/kitti.png" width = 34% height = 34% div align=center />
@@ -82,28 +89,6 @@ Green path is VIO odometry; red path is odometry under visual loop closure.
 <img src="support_files/image/euroc.gif" width = 430 height = 240 />
 
 
-## 4. KITTI Example
-### 4.1 KITTI Odometry (Stereo)
-Download [KITTI Odometry dataset](http://www.cvlibs.net/datasets/kitti/eval_odometry.php) to YOUR_DATASET_FOLDER. Take sequences 00 for example,
-Open two terminals, run vins and rviz respectively. 
-(We evaluated odometry on KITTI benchmark without loop closure funtion)
-```
-    roslaunch vins vins_rviz.launch
-    (optional) rosrun loop_fusion loop_fusion_node ~/catkin_ws/src/VINS-Fusion/config/kitti_odom/kitti_config00-02.yaml
-    rosrun vins kitti_odom_test ~/catkin_ws/src/VINS-Fusion/config/kitti_odom/kitti_config00-02.yaml YOUR_DATASET_FOLDER/sequences/00/ 
-```
-### 4.2 KITTI GPS Fusion (Stereo + GPS)
-Download [KITTI raw dataset](http://www.cvlibs.net/datasets/kitti/raw_data.php) to YOUR_DATASET_FOLDER. Take [2011_10_03_drive_0027_synced](https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data/2011_10_03_drive_0027/2011_10_03_drive_0027_sync.zip) for example.
-Open three terminals, run vins, global fusion and rviz respectively. 
-Green path is VIO odometry; blue path is odometry under GPS global fusion.
-```
-    roslaunch vins vins_rviz.launch
-    rosrun vins kitti_gps_test ~/catkin_ws/src/VINS-Fusion/config/kitti_raw/kitti_10_03_config.yaml YOUR_DATASET_FOLDER/2011_10_03_drive_0027_sync/ 
-    rosrun global_fusion global_fusion_node
-```
-
-<img src="support_files/image/kitti.gif" width = 430 height = 240 />
-
 ## 5. VINS-Fusion on car demonstration
 Download [car bag](https://drive.google.com/open?id=10t9H1u8pMGDOI6Q2w2uezEq5Ib-Z8tLz) to YOUR_DATASET_FOLDER.
 Open four terminals, run vins odometry, visual loop closure(optional), rviz and play the bag file respectively. 
@@ -130,33 +115,6 @@ VINS-Fusion support several camera models (pinhole, mei, equidistant). You can u
 cd ~/catkin_ws/src/VINS-Fusion/camera_models/camera_calib_example/
 rosrun camera_models Calibrations -w 12 -h 8 -s 80 -i calibrationdata --camera-model pinhole
 ```
-
-## 7. Docker Support
-To further facilitate the building process, we add docker in our code. Docker environment is like a sandbox, thus makes our code environment-independent. To run with docker, first make sure [ros](http://wiki.ros.org/ROS/Installation) and [docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) are installed on your machine. Then add your account to `docker` group by `sudo usermod -aG docker $YOUR_USER_NAME`. **Relaunch the terminal or logout and re-login if you get `Permission denied` error**, type:
-```
-cd ~/catkin_ws/src/VINS-Fusion/docker
-make build
-```
-Note that the docker building process may take a while depends on your network and machine. After VINS-Fusion successfully built, you can run vins estimator with script `run.sh`.
-Script `run.sh` can take several flags and arguments. Flag `-k` means KITTI, `-l` represents loop fusion, and `-g` stands for global fusion. You can get the usage details by `./run.sh -h`. Here are some examples with this script:
-```
-# Euroc Monocualr camera + IMU
-./run.sh ~/catkin_ws/src/VINS-Fusion/config/euroc/euroc_mono_imu_config.yaml
-
-# Euroc Stereo cameras + IMU with loop fusion
-./run.sh -l ~/catkin_ws/src/VINS-Fusion/config/euroc/euroc_mono_imu_config.yaml
-
-# KITTI Odometry (Stereo)
-./run.sh -k ~/catkin_ws/src/VINS-Fusion/config/kitti_odom/kitti_config00-02.yaml YOUR_DATASET_FOLDER/sequences/00/
-
-# KITTI Odometry (Stereo) with loop fusion
-./run.sh -kl ~/catkin_ws/src/VINS-Fusion/config/kitti_odom/kitti_config00-02.yaml YOUR_DATASET_FOLDER/sequences/00/
-
-#  KITTI GPS Fusion (Stereo + GPS)
-./run.sh -kg ~/catkin_ws/src/VINS-Fusion/config/kitti_raw/kitti_10_03_config.yaml YOUR_DATASET_FOLDER/2011_10_03_drive_0027_sync/
-
-```
-In Euroc cases, you need open another terminal and play your bag file. If you need modify the code, simply re-run `./run.sh` with proper auguments after your changes.
 
 
 ## 8. Acknowledgements
