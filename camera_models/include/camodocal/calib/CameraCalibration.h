@@ -2,14 +2,12 @@
 #define CAMERACALIBRATION_H
 
 #include <opencv2/core/core.hpp>
-
+#include <opencv2/imgproc/types_c.h>
+#include <opencv2/calib3d/calib3d_c.h>
 #include "camodocal/camera_models/Camera.h"
 
-namespace camodocal
-{
-
-class CameraCalibration
-{
+namespace camodocal{
+class CameraCalibration{
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
     CameraCalibration();
