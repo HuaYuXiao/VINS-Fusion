@@ -2,7 +2,6 @@
 #define CHESSBOARDQUAD_H
 
 #include <boost/shared_ptr.hpp>
-
 #include "camodocal/chessboard/ChessboardCorner.h"
 
 namespace camodocal
