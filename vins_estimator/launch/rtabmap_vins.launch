@@ -15,13 +15,16 @@
     <!-- 启动rtabmap_ros建图 -->
     <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
         <arg name="rtabmap_args"       value="--delete_db_on_start"/>
-        <arg name="depth_topic"        value="/camera/depth/image_raw"/>
         <arg name="frame_id"           value="D435i::camera_depth_frame"/>
         <arg name="visual_odometry"    value="false"/>
+
         <!-- RGB-D related topics -->
         <arg name="odom_topic"         value="/vins_estimator/odometry"/>
         <arg name="rgb_topic"          value="/camera/color/image_raw"/>
+        <arg name="depth_topic"        value="/camera/depth/image_raw"/>
         <arg name="camera_info_topic"  value="/camera/color/camera_info"/>
+        <arg name="imu_topic" value="/camera/imu"/>
+
         <arg name="queue_size"         value="200"/>
         <arg name="rviz"               value="$(arg use_rviz)"/>
         <arg name="rtabmapviz"         value="$(arg use_rtabmapviz)"/>
