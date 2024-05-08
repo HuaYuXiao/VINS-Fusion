@@ -46,13 +46,12 @@ Follow [Ceres Installation](http://ceres-solver.org/installation.html).
 
 
 ## 2. Build VINS-Fusion
-Clone the repository and catkin_make:
+
+catkin_make:
 
 ```bash
 catkin_make install --source src/VINS-Fusion/vins_estimator --build build/vins_fusion
 ```
-
-(if you fail in this step, try to find another computer with clean system or reinstall Ubuntu and ROS)
 
 ## 3. EuRoC Example
 Download [EuRoC MAV Dataset](http://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets) to YOUR_DATASET_FOLDER. Take MH_01 for example, you can run VINS-Fusion with three sensor types (monocular camera + IMU, stereo cameras + IMU and stereo cameras). 
@@ -69,6 +68,10 @@ Green path is VIO odometry; red path is odometry under visual loop closure.
 ```
 
 ### 3.2 Stereo cameras + IMU
+
+```bash
+roslaunch vins_fusion simulation.launch
+```
 
 ```
     roslaunch vins vins_rviz.launch
