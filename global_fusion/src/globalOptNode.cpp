@@ -36,7 +36,7 @@ void publish_car_model(double t, Eigen::Vector3d t_w_car, Eigen::Quaterniond q_w
     visualization_msgs::MarkerArray markerArray_msg;
     visualization_msgs::Marker car_mesh;
     car_mesh.header.stamp = ros::Time(t);
-    car_mesh.header.frame_id = "world";
+    car_mesh.header.frame_id = "map";
     car_mesh.type = visualization_msgs::Marker::MESH_RESOURCE;
     car_mesh.action = visualization_msgs::Marker::ADD;
     car_mesh.id = 0;
@@ -128,8 +128,8 @@ void vio_callback(const nav_msgs::Odometry::ConstPtr &pose_msg)
 
     nav_msgs::Odometry odometry;
     odometry.header = pose_msg->header;
-    odometry.header.frame_id = "world";
-    odometry.child_frame_id = "world";
+    odometry.header.frame_id = "map";
+    odometry.child_frame_id = "map";
     odometry.pose.pose.position.x = global_t.x();
     odometry.pose.pose.position.y = global_t.y();
     odometry.pose.pose.position.z = global_t.z();
@@ -143,7 +143,7 @@ void vio_callback(const nav_msgs::Odometry::ConstPtr &pose_msg)
 
 
     // write result to file
-    std::ofstream foutC("/home/tony-ws1/output/vio_global.csv", ios::app);
+    std::ofstream foutC("/home/hyx020222/SLAM_ws/src/VINS-Fusion/output/vio_global.csv", ios::app);
     foutC.setf(ios::fixed, ios::floatfield);
     foutC.precision(0);
     foutC << pose_msg->header.stamp.toSec() * 1e9 << ",";
@@ -167,9 +167,11 @@ int main(int argc, char **argv)
 
     ros::Subscriber sub_GPS = n.subscribe("/gps", 100, GPS_callback);
     ros::Subscriber sub_vio = n.subscribe("/vins_estimator/odometry", 100, vio_callback);
+
     pub_global_path = n.advertise<nav_msgs::Path>("global_path", 100);
     pub_global_odometry = n.advertise<nav_msgs::Odometry>("global_odometry", 100);
     pub_car = n.advertise<visualization_msgs::MarkerArray>("car_model", 1000);
+
     ros::spin();
     return 0;
 }

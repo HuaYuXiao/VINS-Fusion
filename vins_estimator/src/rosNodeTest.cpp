@@ -44,7 +44,6 @@ void img1_callback(const sensor_msgs::ImageConstPtr &img_msg)
     m_buf.unlock();
 }
 
-
 cv::Mat getImageFromMsg(const sensor_msgs::ImageConstPtr &img_msg)
 {
     cv_bridge::CvImageConstPtr ptr;
@@ -130,7 +129,6 @@ void sync_process()
         std::this_thread::sleep_for(dura);
     }
 }
-
 
 void imu_callback(const sensor_msgs::ImuConstPtr &imu_msg)
 {

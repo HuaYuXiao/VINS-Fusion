@@ -4,29 +4,34 @@
     <node pkg="tf" type="static_transform_publisher" name="tf_world_map"
           args="0 0 0 0 0 0 world map 100"/>
 
-    <!-- ORB_SLAM的地图坐标系与map坐标系之间的转换关系 -->
-    <node pkg="tf" type="static_transform_publisher" name="tf_slam2map"
-          args="0 0 0 0 0 0 map camera_init 100"/>
-
-    <arg name="clip_distance"             default="-2"/>
-    <arg name="use_rviz"                  default="false"/>
-    <arg name="use_rtabmapviz"            default="false"/>
+<!--    <arg name="clip_distance"             default="-2"/>-->
+<!--    <arg name="use_rviz"                  default="false"/>-->
+<!--    <arg name="use_rtabmapviz"            default="false"/>-->
 
     <!-- 启动rtabmap_ros建图 -->
-    <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
-        <arg name="rtabmap_args"       value="--delete_db_on_start"/>
-        <arg name="frame_id"           value="D435i::camera_depth_frame"/>
-        <arg name="visual_odometry"    value="false"/>
+<!--    <include file="$(find rtabmap_ros)/launch/rtabmap.launch">-->
+<!--        <arg name="rtabmap_args"       value="&#45;&#45;delete_db_on_start"/>-->
 
-        <!-- RGB-D related topics -->
-        <arg name="odom_topic"         value="/vins_estimator/odometry"/>
-        <arg name="rgb_topic"          value="/camera/color/image_raw"/>
-        <arg name="depth_topic"        value="/camera/depth/image_raw"/>
-        <arg name="camera_info_topic"  value="/camera/color/camera_info"/>
-        <arg name="imu_topic" value="/camera/imu"/>
+<!--        <arg name="localization" value="true"/>-->
+<!--        <arg name="initial_pose" value="0 0 0 0 0 0"/>-->
 
-        <arg name="queue_size"         value="200"/>
-        <arg name="rviz"               value="$(arg use_rviz)"/>
-        <arg name="rtabmapviz"         value="$(arg use_rtabmapviz)"/>
-    </include>
+<!--        <arg name="frame_id"           value="camera_link"/>-->
+<!--&lt;!&ndash;        <arg name="odom_frame_id" value="map_slam"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <arg name="odom_frame_id_init" value="map_slam"/>&ndash;&gt;-->
+
+<!--        <arg name="launch_prefix" value="gnome-terminal &#45;&#45;"/>-->
+
+<!--        <arg name="visual_odometry"    value="false"/>-->
+
+<!--        &lt;!&ndash; RGB-D related topics &ndash;&gt;-->
+<!--        <arg name="odom_topic"         value="/vins_estimator/odometry"/>-->
+<!--        <arg name="rgb_topic"          value="/camera/color/image_raw"/>-->
+<!--        <arg name="depth_topic"        value="/camera/depth/image_raw"/>-->
+<!--        <arg name="camera_info_topic"  value="/camera/color/camera_info"/>-->
+<!--        <arg name="imu_topic" value="/camera/imu"/>-->
+
+<!--        <arg name="queue_size"         value="200"/>-->
+<!--        <arg name="rviz"               value="$(arg use_rviz)"/>-->
+<!--        <arg name="rtabmapviz"         value="$(arg use_rtabmapviz)"/>-->
+<!--    </include>-->
 </launch>

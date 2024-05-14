@@ -250,10 +250,8 @@ bool Estimator::getIMUInterval(double t0, double t1, vector<pair<double, Eigen::
         }
         accVector.push_back(accBuf.front());
         gyrVector.push_back(gyrBuf.front());
-    }
-    else
-    {
-        printf("wait for imu\n");
+    }else{
+//        printf("wait for imu\n");
         return false;
     }
     return true;
@@ -282,9 +280,8 @@ void Estimator::processMeasurements()
             {
                 if ((!USE_IMU  || IMUAvailable(feature.first + td)))
                     break;
-                else
-                {
-                    printf("wait for imu ... \n");
+                else{
+//                    printf("wait for imu ... \n");
                     if (! MULTIPLE_THREAD)
                         return;
                     std::chrono::milliseconds dura(5);
@@ -321,7 +318,7 @@ void Estimator::processMeasurements()
             printStatistics(*this, 0);
 
             std_msgs::Header header;
-            header.frame_id = "world";
+            header.frame_id = "map";
             header.stamp = ros::Time(feature.first);
 
             pubOdometry(*this, header);

@@ -32,7 +32,9 @@
 #include "pose_graph.h"
 #include "utility/CameraPoseVisualization.h"
 #include "parameters.h"
+
 #define SKIP_FIRST_CNT 10
+
 using namespace std;
 
 queue<sensor_msgs::ImageConstPtr> image_buf;
@@ -60,9 +62,11 @@ int DEBUG_IMAGE;
 camodocal::CameraPtr m_camera;
 Eigen::Vector3d tic;
 Eigen::Matrix3d qic;
+
 ros::Publisher pub_match_img;
 ros::Publisher pub_camera_pose_visual;
 ros::Publisher pub_odometry_rect;
+ros::Publisher pub_point_cloud, pub_margin_cloud;
 
 std::string BRIEF_PATTERN_FILE;
 std::string POSE_GRAPH_SAVE_PATH;
@@ -70,8 +74,6 @@ std::string VINS_RESULT_PATH;
 CameraPoseVisualization cameraposevisual(1, 0, 0, 1);
 Eigen::Vector3d last_t(-100, -100, -100);
 double last_image_time = -1;
-
-ros::Publisher pub_point_cloud, pub_margin_cloud;
 
 void new_sequence()
 {
@@ -207,7 +209,7 @@ void vio_callback(const nav_msgs::Odometry::ConstPtr &pose_msg)
 
     nav_msgs::Odometry odometry;
     odometry.header = pose_msg->header;
-    odometry.header.frame_id = "world";
+    odometry.header.frame_id = "map";
     odometry.pose.pose.position.x = vio_t.x();
     odometry.pose.pose.position.y = vio_t.y();
     odometry.pose.pose.position.z = vio_t.z();

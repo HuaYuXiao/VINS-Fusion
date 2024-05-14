@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <package>
   <name>vins_fusion</name>
-  <version>1.0.0</version>
-  <description>The vins package</description>
+  <version>1.0.1</version>
+  <description>
+    The vins package
+  </description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->

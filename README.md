@@ -39,6 +39,12 @@ alt="VINS" width="320" height="240" border="10" /></a>
 
 *If you use VINS-Fusion for your academic research, please cite our related papers. [bib](support_files/paper_bib.txt)*
 
+
+## Release Note
+
+- v1.0.1: replace `map_slam` with `map`
+- 
+
 ## 1. Prerequisites
 
 ### 1.2. **Ceres Solver**
@@ -46,8 +52,6 @@ Follow [Ceres Installation](http://ceres-solver.org/installation.html).
 
 
 ## 2. Build VINS-Fusion
-
-catkin_make:
 
 ```bash
 catkin_make install --source src/VINS-Fusion/vins_estimator --build build/vins_fusion
