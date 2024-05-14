@@ -8,12 +8,12 @@
     <!-- 1号无人机 -->
     <include file="$(find prometheus_gazebo)/launch/sitl_$(arg model).launch"/>
 
-    <include file="$(find vins_fusion)/launch/uav_control_main_indoor.launch"/>
+    <include file="$(find uav_control)/launch/uav_control_indoor.launch"/>
 
     <include file="$(find vins_fusion)/launch/rtabmap_vins.launch"/>
 
     <!-- VINS-Fusion -->
-    <node pkg="vins_fusion" type="vins_node" name="vins_estimator" args="$(find vins_fusion)/../config/realsense_d435i/realsense_stereo_imu_config.yaml"/>
+<include file="$(find vins_fusion)/launch/VINS-Fusion.launch"/>
 
     <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find vins_fusion)/../config/vins_rviz_config.rviz" />
 </launch>
