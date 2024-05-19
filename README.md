@@ -58,7 +58,7 @@ Follow [Ceres Installation](http://ceres-solver.org/installation.html).
 ## Compilation
 
 ```bash
-catkin_make install --source src/VINS-Fusion/vins_estimator --build build/vins_fusion
+catkin_make install --source src/VINS-Fusion --build build/vins_fusion
 ```
 
 

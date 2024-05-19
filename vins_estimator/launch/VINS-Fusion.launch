@@ -1,7 +1,0 @@
-<launch>
-    <node pkg="vins_fusion" type="vins_node" name="vins_estimator"
-          args="$(find vins_fusion)/../config/realsense_d435i/realsense_stereo_imu_config.yaml" launch-prefix="gnome-terminal --"/>
-
-    <node pkg="loop_fusion" type="loop_fusion_node" name="loop_fusion_node"
-          args="$(find loop_fusion)/../config/realsense_d435i/realsense_stereo_imu_config.yaml" launch-prefix="gnome-terminal --"/>
-</launch>
