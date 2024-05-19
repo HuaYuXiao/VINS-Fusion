@@ -1,0 +1,21 @@
+<launch>
+    <arg name="model" default="p450_3Dlidar_D435i"/>
+
+    <!-- world -->
+    <include file="$(find prometheus_gazebo)/launch/Eason_indoor.launch"/>
+
+    <!-- 1号无人机 -->
+    <include file="$(find prometheus_gazebo)/launch/sitl_$(arg model).launch"/>
+
+    <include file="$(find uav_control)/launch/uav_control_indoor.launch"/>
+
+    <!-- STATION -->
+    <include file="$(find prometheus_station)/launch/prometheus_station.launch"/>
+
+    <include file="$(find vins_fusion)/launch/rtabmap_vins.launch"/>
+
+    <!-- VINS-Fusion -->
+    <include file="$(find vins_fusion)/launch/VINS-Fusion.launch"/>
+
+    <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find vins_fusion)/config/vins_rviz_config.rviz" />
+</launch>
