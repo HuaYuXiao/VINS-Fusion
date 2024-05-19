@@ -6,7 +6,6 @@ An optimization-based multi-sensor state estimator
 ![Static Badge](https://img.shields.io/badge/ROS-noetic-22314E?logo=ros)
 ![Static Badge](https://img.shields.io/badge/OpenCV-4.2.0-5C3EE8?logo=opencv)
 ![Static Badge](https://img.shields.io/badge/C%2B%2B-14-00599C?logo=cplusplus)
-![Static Badge](https://img.shields.io/badge/Python-3.8.10-3776AB?logo=python)
 ![Static Badge](https://img.shields.io/badge/Ubuntu-20.04.6-E95420?logo=ubuntu)
 
 <img src="support_files/image/vins_logo.png" width = 55% height = 55% div align=left />
@@ -27,7 +26,7 @@ We are the **top** open-sourced stereo algorithm on [KITTI Odometry Benchmark](h
 
 **Videos:**
 
-<a href="https://www.youtube.com/embed/1qye82aW7nI" target="_blank"><img src="http://img.youtube.com/vi/1qye82aW7nI/0.jpg" 
+<a href="https://www.bilibili.com/video/BV1or421j7xe" target="_blank"><img src="http://img.youtube.com/vi/1qye82aW7nI/0.jpg" 
 alt="VINS" width="320" height="240" border="10" /></a>
 
 
