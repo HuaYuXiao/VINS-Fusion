@@ -13,7 +13,8 @@ Panels:
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
-    Expanded: ~
+    Expanded:
+      - /2D Nav Goal1
     Name: Tool Properties
     Splitter Ratio: 0.5886790156364441
   - Class: rviz/Views
@@ -63,14 +64,8 @@ Visualization Manager:
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
-        3Dlidar_link:
-          Value: true
         All Enabled: false
-        D435i::camera_depth_frame:
-          Value: false
-        D435i::camera_link:
-          Value: true
-        D435i::imu_link:
+        VLP16_link:
           Value: true
         base_link:
           Value: true
@@ -84,9 +79,13 @@ Visualization Manager:
           Value: true
         map_ned:
           Value: true
+        monocular_link:
+          Value: true
         odom:
           Value: false
         odom_ned:
+          Value: true
+        realsense_camera_frame:
           Value: true
         world:
           Value: true
@@ -101,17 +100,16 @@ Visualization Manager:
           odom_ned:
             {}
         world:
-          base_link:
-            3Dlidar_link:
-              {}
-            D435i::camera_link:
-              D435i::camera_depth_frame:
-                {}
-              D435i::imu_link:
-                {}
-            base_link_frd:
-              {}
           map:
+            base_link:
+              VLP16_link:
+                {}
+              base_link_frd:
+                {}
+              monocular_link:
+                {}
+              realsense_camera_frame:
+                {}
             body:
               camera_link:
                 {}
@@ -124,7 +122,7 @@ Visualization Manager:
         - Alpha: 1
           Buffer Length: 1
           Class: rviz/Path
-          Color: 255; 255; 0
+          Color: 0; 0; 255
           Enabled: true
           Head Diameter: 0.30000001192092896
           Head Length: 0.20000000298023224
@@ -142,13 +140,13 @@ Visualization Manager:
           Radius: 0.029999999329447746
           Shaft Diameter: 0.10000000149011612
           Shaft Length: 0.10000000149011612
-          Topic: /prometheus/drone_trajectory
+          Topic: /easondrone/drone_trajectory
           Unreliable: false
           Value: true
         - Alpha: 1
           Buffer Length: 1
           Class: rviz/Path
-          Color: 25; 255; 0
+          Color: 255; 0; 0
           Enabled: true
           Head Diameter: 0.30000001192092896
           Head Length: 0.20000000298023224
@@ -228,8 +226,8 @@ Visualization Manager:
             Head Radius: 0.10000000149011612
             Shaft Length: 1
             Shaft Radius: 0.05000000074505806
-            Value: Arrow
-          Topic: /prometheus/drone_odom
+            Value: Axes
+          Topic: /mavros/local_position/odom
           Unreliable: false
           Value: true
         - Angle Tolerance: 0.10000000149011612
@@ -263,7 +261,7 @@ Visualization Manager:
             Head Radius: 0.10000000149011612
             Shaft Length: 1
             Shaft Radius: 0.05000000074505806
-            Value: Arrow
+            Value: Axes
           Topic: /vins_estimator/odometry
           Unreliable: false
           Value: true
@@ -439,7 +437,7 @@ Visualization Manager:
       Name: VIOGroup
   Enabled: true
   Global Options:
-    Background Color: 160; 160; 164
+    Background Color: 255; 253; 225
     Default Light: true
     Fixed Frame: world
     Frame Rate: 30
@@ -449,6 +447,8 @@ Visualization Manager:
     - Class: rviz/Select
     - Class: rviz/FocusCamera
     - Class: rviz/Measure
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
   Value: true
   Views:
     Current:
