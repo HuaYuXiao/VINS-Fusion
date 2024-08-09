@@ -7,7 +7,7 @@
 
     <include file="$(find easondrone_gazebo)/launch/transform.launch"/>
 
-    <include file="$(find vins_fusion)/launch/px4ctrl_p450_indoor.launch"/>
+    <include file="$(find vins_fusion)/launch/px4ctrl_vio.launch"/>
 
     <!-- VINS-Fusion -->
 <!--    <include file="$(find vins_fusion)/launch/VINS-Fusion.launch"/>-->
