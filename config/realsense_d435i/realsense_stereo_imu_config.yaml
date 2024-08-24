@@ -25,22 +25,22 @@ body_T_cam0: !!opencv-matrix
   cols: 4
   dt: d
   data: [ 0., 0.,
-          1., 0.1025,
+          1., 0.11,
           -1., 0.,
           0., 0.03,
           0., -1.,
-          0., 0.167, 0., 0., 0., 1. ]
+          0., 0., 0., 0., 0., 1. ]
 
 body_T_cam1: !!opencv-matrix
   rows: 4
   cols: 4
   dt: d
   data: [ 0., 0.,
-          1., 0.1025,
+          1., 0.11,
           -1., 0.,
           0., -0.03,
           0., -1.,
-          0., 0.167, 0., 0., 0., 1. ]
+          0., 0., 0., 0., 0., 1. ]
 
 #Multiple thread support
 multiple_thread: 1

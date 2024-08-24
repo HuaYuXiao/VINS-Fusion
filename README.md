@@ -49,7 +49,6 @@ Clone the repository and catkin_make:
     git clone https://github.com/HuaYuXiao/VINS-Fusion.git
     cd ~/EasonDrone
     catkin_make install --source SLAM/VINS-Fusion --build SLAM/VINS-Fusion/build
-    source ~/EasonDrone/devel/setup.bash
 ```
 (if you fail in this step, try to find another computer with clean system or reinstall Ubuntu and ROS)
 
