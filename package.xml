@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <package>
-  <name>vins_fusion</name>
+  <name>vins</name>
   <version>0.0.0</version>
   <description>The vins package</description>
 
-  <!-- One maintainer tag required, multiple allowed, one person per tag -->
+  <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
-   <maintainer email="12010508@mail.sustech.edu.cn">Eason Hua</maintainer>
+  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
   <maintainer email="qintonguav@gmail.com">qintong</maintainer>
 
 
