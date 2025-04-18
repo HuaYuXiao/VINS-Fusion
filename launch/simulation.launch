@@ -1,12 +1,8 @@
+<?xml version="1.0"?>
 <launch>
-    <include file="$(find easondrone_gazebo)/launch/mavros_posix_sitl.launch"/>
-
-    <include file="$(find easondrone_gazebo)/launch/transform.launch"/>
+    <include file="$(find easondrone_gazebo)/launch/spawn_iris.launch"/>
 
     <include file="$(find px4ctrl)/launch/px4ctrl.launch"/>
 
-    <!-- VINS-Fusion -->
-<!--    <include file="$(find vins_fusion)/launch/VINS-Fusion.launch"/>-->
-
-    <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find vins_fusion)/config/vins_rviz_config.rviz" />
+    <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find vins)/config/vins_rviz_config.rviz" />
 </launch>
